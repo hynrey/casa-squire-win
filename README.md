@@ -1,4 +1,4 @@
-# Home System Windows Service
+# CasaSquire Windows Service
 
 Install dependencies and run pre-commit hooks with Poetry
 ```shell
