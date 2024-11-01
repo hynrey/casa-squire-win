@@ -8,9 +8,9 @@ import win32service
 import win32serviceutil
 
 
-class HelloWorldSvc(win32serviceutil.ServiceFramework):
-    _svc_name_ = "HelloWorld-Service"
-    _svc_display_name_ = "HelloWorld Service"
+class WindowsService(win32serviceutil.ServiceFramework):
+    _svc_name_ = "CasaSquire Service"
+    _svc_display_name_ = "CasaSquire"
 
     def __init__(self, args):
         win32serviceutil.ServiceFramework.__init__(self, args)
@@ -43,7 +43,7 @@ class HelloWorldSvc(win32serviceutil.ServiceFramework):
 if __name__ == "__main__":
     if len(sys.argv) == 1:
         servicemanager.Initialize()
-        servicemanager.PrepareToHostSingle(HelloWorldSvc)
+        servicemanager.PrepareToHostSingle(WindowsService)
         servicemanager.StartServiceCtrlDispatcher()
     else:
-        win32serviceutil.HandleCommandLine(HelloWorldSvc)
+        win32serviceutil.HandleCommandLine(WindowsService)
