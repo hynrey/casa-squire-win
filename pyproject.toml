@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "src"
+version = "0.1.0"
+description = ""
+authors = ["Hynrey <hynrey@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+pywin32 = "^308"
+pre-commit = "^4.0.1"
+
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.3"
+isort = "^5.13.2"
+pytest-mock = "^3.14.0"
+pytest-cov = "^6.0.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
