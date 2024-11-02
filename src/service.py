@@ -1,14 +1,17 @@
+import logging
 import socket
-import sys
-import time
 
 import servicemanager
 import win32event
 import win32service
 import win32serviceutil
 
+from src.utils.mqtt_client import mqtt_client
 
-class WindowsService(win32serviceutil.ServiceFramework):
+log = logging.getLogger(__name__)
+
+
+class CasaSquireService(win32serviceutil.ServiceFramework):
     _svc_name_ = "CasaSquire Service"
     _svc_display_name_ = "CasaSquire"
 
@@ -32,18 +35,4 @@ class WindowsService(win32serviceutil.ServiceFramework):
         self.main()
 
     def main(self):
-        # Simulate a main loop
-        for i in range(0, 50):
-            if self.stop_requested:
-                break
-            time.sleep(5)
-        return
-
-
-if __name__ == "__main__":
-    if len(sys.argv) == 1:
-        servicemanager.Initialize()
-        servicemanager.PrepareToHostSingle(WindowsService)
-        servicemanager.StartServiceCtrlDispatcher()
-    else:
-        win32serviceutil.HandleCommandLine(WindowsService)
+        mqtt_client.run()

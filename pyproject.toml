@@ -9,6 +9,9 @@ readme = "README.md"
 python = "^3.12"
 pywin32 = "^308"
 pre-commit = "^4.0.1"
+pydantic = "^2.9.2"
+pydantic-settings = "^2.6.1"
+aiomqtt = "^2.3.0"
 
 
 [tool.poetry.group.dev.dependencies]
@@ -16,6 +19,7 @@ pytest = "^8.3.3"
 isort = "^5.13.2"
 pytest-mock = "^3.14.0"
 pytest-cov = "^6.0.0"
+pytest-asyncio = "^0.24.0"
 
 [build-system]
 requires = ["poetry-core"]
